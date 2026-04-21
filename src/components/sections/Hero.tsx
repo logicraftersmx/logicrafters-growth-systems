@@ -27,7 +27,7 @@ export const Hero = () => (
             <a href="#contacto">Agendar diagnóstico gratis <ArrowRight className="w-5 h-5" /></a>
           </Button>
           <Button variant="outlineLight" size="xl" asChild>
-            <a href="https://wa.me/5215555555555" target="_blank" rel="noopener">
+            <a href="https://w.app/l6zsyx" target="_blank" rel="noopener">
               <MessageCircle className="w-5 h-5" /> Hablar por WhatsApp
             </a>
           </Button>

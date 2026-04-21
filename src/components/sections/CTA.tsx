@@ -18,7 +18,7 @@ export const CTA = () => {
     const business = data.get("business");
     const msg = `Hola Logicrafters, soy ${name} (${phone}). Tengo un negocio de ${business} y quiero un diagnóstico.`;
     setTimeout(() => {
-      window.open(`https://wa.me/5215555555555?text=${encodeURIComponent(msg)}`, "_blank");
+      window.open(`https://w.app/l6zsyx?text=${encodeURIComponent(msg)}`, "_blank");
       toast.success("¡Listo! Te contactamos en menos de 24 horas.");
       setLoading(false);
       (e.target as HTMLFormElement).reset();
@@ -40,13 +40,13 @@ export const CTA = () => {
             Agenda un diagnóstico gratuito de 30 minutos. Te decimos exactamente qué te está frenando y cómo solucionarlo. Sin compromiso.
           </p>
           <div className="space-y-4">
-            <a href="https://wa.me/5215555555555" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://w.app/l6zsyx" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center"><MessageCircle className="w-5 h-5 text-white" /></div>
-              <div><div className="text-sm text-white/60">WhatsApp directo</div><div className="font-semibold">+52 55 5555 5555</div></div>
+              <div><div className="text-sm text-white/60">WhatsApp directo</div><div className="font-semibold">+52 771 114 8693</div></div>
             </a>
-            <a href="mailto:hola@logicrafters.mx" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="mailto:logicraftersmx@gmail.com" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center"><Mail className="w-5 h-5 text-white" /></div>
-              <div><div className="text-sm text-white/60">Correo</div><div className="font-semibold">hola@logicrafters.mx</div></div>
+              <div><div className="text-sm text-white/60">Correo</div><div className="font-semibold">logicraftersmx@gmail.com</div></div>
             </a>
           </div>
         </motion.div>
