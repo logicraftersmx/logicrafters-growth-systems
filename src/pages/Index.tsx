@@ -10,6 +10,7 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { DomainWizard } from "@/components/domain-wizard/DomainWizard";
 
 const Index = () => (
   <main className="min-h-screen">
@@ -25,6 +26,7 @@ const Index = () => (
     <CTA />
     <Footer />
     <WhatsAppFloat />
+    <DomainWizard />
   </main>
 );
 
