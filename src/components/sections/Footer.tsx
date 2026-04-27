@@ -1,5 +1,6 @@
 import { Logo } from "../Logo";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
   <footer className="bg-[hsl(var(--navy))] text-white/70 py-12 border-t border-white/10">
@@ -17,7 +18,15 @@ export const Footer = () => (
       </div>
       <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between text-xs text-white/50 gap-2">
         <p>© {new Date().getFullYear()} Logicrafters MX. Todos los derechos reservados.</p>
-        <p>Hecho con obsesión por los detalles 🇲🇽</p>
+        <div className="flex items-center gap-4">
+          <p>Hecho con obsesión por los detalles 🇲🇽</p>
+          <Link
+            to="/admin"
+            className="inline-flex items-center gap-1 hover:text-white/80 transition-colors"
+          >
+            <Lock className="w-3 h-3" /> Acceso interno
+          </Link>
+        </div>
       </div>
     </div>
   </footer>
