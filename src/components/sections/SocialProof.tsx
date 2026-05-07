@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
-import logoInbursa from "@/assets/logo-inbursa.png";
-import logoTagPase from "@/assets/logo-tagpase.png";
-import logoMidori from "@/assets/logo-midori.png";
+import logoInbursa from "@/assets/logo-inbursa.svg";
+import logoTagPase from "@/assets/logo-tagpase.jpg";
+import logoMidori from "@/assets/logo-midori.webp";
 
 const cases = [
   {
