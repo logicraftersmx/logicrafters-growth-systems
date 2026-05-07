@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { AuthProvider } from "./admin/auth/AuthProvider";
 import { LanguageProvider } from "./i18n/LanguageContext";
+import { ThemeProvider } from "./theme/ThemeContext";
 import { ProtectedRoute } from "./admin/auth/ProtectedRoute";
 import AdminLayout from "./admin/layout/AdminLayout";
 import AdminAuth from "./admin/pages/AdminAuth";
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ThemeProvider>
         <LanguageProvider>
         <AuthProvider>
           <Routes>
@@ -55,6 +57,7 @@ const App = () => (
           </Routes>
         </AuthProvider>
         </LanguageProvider>
+        </ThemeProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
