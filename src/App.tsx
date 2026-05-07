@@ -16,6 +16,7 @@ import Unauthorized from "./admin/pages/Unauthorized";
 import Dashboard from "./admin/pages/Dashboard";
 import Clients from "./admin/pages/Clients";
 import Team from "./admin/pages/Team";
+import Leads from "./admin/pages/Leads";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
             >
               <Route index element={<Dashboard />} />
               <Route path="clients" element={<Clients />} />
+              <Route path="leads" element={<Leads />} />
               <Route
                 path="team"
                 element={

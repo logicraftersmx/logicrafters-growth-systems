@@ -6,25 +6,37 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useLang } from "@/i18n/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
 export const CTA = () => {
   const [loading, setLoading] = useState(false);
   const { t } = useLang();
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const data = new FormData(e.currentTarget);
-    const name = data.get("name");
-    const phone = data.get("phone");
-    const business = data.get("business");
-    const msg = `Hola Logicrafters, soy ${name} (${phone}). Tengo un negocio de ${business} y quiero un diagnóstico.`;
-    setTimeout(() => {
-      window.open(`https://w.app/l6zsyx?text=${encodeURIComponent(msg)}`, "_blank");
-      toast.success(t("cta.toast"));
+    const form = e.currentTarget;
+    const name = String(data.get("name") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const business = String(data.get("business") || "").trim();
+    const message = String(data.get("message") || "").trim() || null;
+
+    const { error } = await supabase.from("leads").insert({
+      name, phone, business, message, source: "website-form",
+    });
+
+    if (error) {
       setLoading(false);
-      (e.target as HTMLFormElement).reset();
-    }, 600);
+      toast.error("No se pudo enviar. Intenta de nuevo.");
+      return;
+    }
+
+    const msg = `Hola Logicrafters, soy ${name} (${phone}). Tengo un negocio de ${business} y quiero un diagnóstico.`;
+    window.open(`https://w.app/l6zsyx?text=${encodeURIComponent(msg)}`, "_blank");
+    toast.success(t("cta.toast"));
+    setLoading(false);
+    form.reset();
   };
 
   return (
