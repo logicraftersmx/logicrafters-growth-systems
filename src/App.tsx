@@ -13,6 +13,7 @@ import { ThemeProvider } from "./theme/ThemeContext";
 import { ProtectedRoute } from "./admin/auth/ProtectedRoute";
 import AdminLayout from "./admin/layout/AdminLayout";
 import AdminAuth from "./admin/pages/AdminAuth";
+import ResetPassword from "./admin/pages/ResetPassword";
 import Invite from "./admin/pages/Invite";
 import Unauthorized from "./admin/pages/Unauthorized";
 import Dashboard from "./admin/pages/Dashboard";
@@ -35,6 +36,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/admin/auth" element={<AdminAuth />} />
+            <Route path="/admin/reset-password" element={<ResetPassword />} />
             <Route path="/admin/invite" element={<Invite />} />
             <Route path="/admin/unauthorized" element={<Unauthorized />} />
             <Route
