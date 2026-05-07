@@ -13,6 +13,7 @@ import { ThemeProvider } from "./theme/ThemeContext";
 import { ProtectedRoute } from "./admin/auth/ProtectedRoute";
 import AdminLayout from "./admin/layout/AdminLayout";
 import AdminAuth from "./admin/pages/AdminAuth";
+import ResetPassword from "./admin/pages/ResetPassword";
 import Invite from "./admin/pages/Invite";
 import Unauthorized from "./admin/pages/Unauthorized";
 import Dashboard from "./admin/pages/Dashboard";
