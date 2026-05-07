@@ -33,7 +33,7 @@ export const CTA = () => {
     }
 
     const msg = `Hola Logicrafters, soy ${name} (${phone}). Tengo un negocio de ${business} y quiero un diagnóstico.`;
-    window.open(`https://wa.link/dzf76j?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.link/t4smw8?text=${encodeURIComponent(msg)}`, "_blank");
     toast.success(t("cta.toast"));
     setLoading(false);
     form.reset();
@@ -52,7 +52,7 @@ export const CTA = () => {
           </h2>
           <p className="text-lg text-white/75 mb-8">{t("cta.desc")}</p>
           <div className="space-y-4">
-            <a href="https://wa.link/dzf76j" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://wa.link/t4smw8" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center"><MessageCircle className="w-5 h-5 text-white" /></div>
               <div><div className="text-sm text-white/60">{t("cta.wa")}</div><div className="font-semibold">+52 487 195 5616</div></div>
             </a>
