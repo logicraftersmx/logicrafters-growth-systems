@@ -1,24 +1,26 @@
 import { motion } from "framer-motion";
 import { Search, Lightbulb, Code, Rocket } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 
-const steps = [
-  { n: "01", icon: Search, title: "Diagnóstico", desc: "Entendemos tu negocio, tus dolores y tus metas. Identificamos qué te está frenando y qué oportunidades estás dejando ir.", color: "from-secondary to-secondary/70" },
-  { n: "02", icon: Lightbulb, title: "Estrategia", desc: "Diseñamos un plan a medida: qué construir, en qué orden, con qué tecnología y qué resultados esperar.", color: "from-primary to-primary-glow" },
-  { n: "03", icon: Code, title: "Desarrollo", desc: "Construimos tu solución con calidad premium. Diseño profesional, código limpio y enfoque obsesivo en la experiencia.", color: "from-accent to-accent/70" },
-  { n: "04", icon: Rocket, title: "Implementación", desc: "Lanzamos, capacitamos a tu equipo y damos seguimiento. No te dejamos solo: ajustamos hasta que funcione perfecto.", color: "from-secondary to-primary" },
-];
-
-export const Process = () => (
+export const Process = () => {
+  const { t } = useLang();
+  const steps = [
+    { n: "01", icon: Search, title: t("proc.s1.title"), desc: t("proc.s1.desc"), color: "from-secondary to-secondary/70" },
+    { n: "02", icon: Lightbulb, title: t("proc.s2.title"), desc: t("proc.s2.desc"), color: "from-primary to-primary-glow" },
+    { n: "03", icon: Code, title: t("proc.s3.title"), desc: t("proc.s3.desc"), color: "from-accent to-accent/70" },
+    { n: "04", icon: Rocket, title: t("proc.s4.title"), desc: t("proc.s4.desc"), color: "from-secondary to-primary" },
+  ];
+  return (
   <section id="proceso" className="py-24 md:py-32 bg-[hsl(var(--navy))] text-white relative overflow-hidden">
     <div className="absolute inset-0 grid-pattern opacity-40" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-3xl" />
     <div className="container relative">
       <div className="max-w-3xl mx-auto text-center mb-20">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold mb-4">Cómo funciona</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold mb-4">{t("proc.tag")}</span>
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Un proceso claro,<br /> <span className="text-gradient-orange">resultados predecibles</span>.
+          {t("proc.title1")}<br /> <span className="text-gradient-orange">{t("proc.title2")}</span>.
         </h2>
-        <p className="text-lg text-white/70">Sin sorpresas, sin "ya casi". Un método probado en 4 fases.</p>
+        <p className="text-lg text-white/70">{t("proc.desc")}</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -42,4 +44,5 @@ export const Process = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
