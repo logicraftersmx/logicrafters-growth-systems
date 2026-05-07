@@ -7,6 +7,7 @@ import {
   LogOut,
   Menu,
   X,
+  Inbox,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -14,6 +15,7 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/admin/leads", label: "Leads del sitio", icon: Inbox },
   { to: "/admin/clients", label: "Clientes (CRM)", icon: Users },
   { to: "/admin/team", label: "Equipo", icon: UserCog, adminOnly: true },
 ];
