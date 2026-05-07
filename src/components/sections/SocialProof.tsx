@@ -1,41 +1,76 @@
 import { motion } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
+import logoInbursa from "@/assets/logo-inbursa.png";
+import logoTagPase from "@/assets/logo-tagpase.png";
+import logoMidori from "@/assets/logo-midori.png";
 
 const cases = [
   {
-    industry: "Barbería",
-    before: "Agenda en cuaderno, 40% de citas perdidas, sin control de ingresos.",
-    after: "App de reservas, cobros automatizados, +65% en ventas mensuales.",
-    quote: "En 3 meses dupliqué clientes recurrentes y dejé de perder citas. Hoy el negocio funciona aunque yo no esté.",
-    author: "Carlos M.",
-    role: "Dueño, Barbería en CDMX",
-  },
-  {
-    industry: "Estética",
-    before: "Inventario desordenado, promociones sin seguimiento, equipo desinformado.",
-    after: "Sistema central, app para clientas, reportes en tiempo real.",
-    quote: "Por fin tengo claridad de mi negocio. Sé qué se vende, qué clientas regresan y cuánto gano de verdad.",
-    author: "Lucía R.",
-    role: "Fundadora, Estética Premium",
-  },
-  {
     industry: "Bienes raíces",
-    before: "Leads en WhatsApp dispersos, propiedades en Excel, cierres lentos.",
-    after: "CRM a medida, sitio con captura automática, +3x conversión.",
-    quote: "El sistema convirtió mi forma caótica de trabajar en una operación profesional. Cierro 3 veces más.",
-    author: "Andrea P.",
-    role: "Asesora inmobiliaria",
+    before: "Propiedades en hojas de cálculo, leads dispersos en WhatsApp y sin presencia digital seria.",
+    after: "Sitio editorial premium, buscador avanzado y portal de agentes — leads centralizados.",
+    quote: "Logicrafters entendió el lenguaje del lujo. El sitio nos posicionó como referente y los clientes llegan listos para cerrar.",
+    author: "Equipo Almena",
+    role: "Almena Inmobiliaria",
   },
+  {
+    industry: "Abarrotes / Retail",
+    before: "Ventas solo de mostrador, sin catálogo digital ni forma de recibir pedidos a distancia.",
+    after: "Tienda en línea con catálogo, carrito y entrega local — pedidos 24/7.",
+    quote: "Pasamos de vender solo en el local a recibir pedidos por internet todos los días. La inversión se pagó en semanas.",
+    author: "Familia Chalía",
+    role: "Abarrotes Chalía, Rayón S.L.P.",
+  },
+  {
+    industry: "Industria automotriz",
+    before: "Procesos internos manuales, reportes en Excel y comunicación dispersa entre áreas.",
+    after: "Tableros y automatizaciones a medida que aceleran la operación diaria.",
+    quote: "Gente con criterio técnico y de negocio. Entregaron exactamente lo que necesitábamos, en tiempo y forma.",
+    author: "Área de Sistemas",
+    role: "Proyecto para Midori Auto Leather",
+  },
+];
+
+const partners = [
+  { name: "Inbursa", logo: logoInbursa },
+  { name: "TAG Pase", logo: logoTagPase },
+  { name: "Midori Auto Leather", logo: logoMidori },
 ];
 
 export const SocialProof = () => (
   <section className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">Resultados reales</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">Experiencia y resultados reales</span>
         <h2 className="text-4xl md:text-5xl font-bold">
-          De negocios desorganizados a <span className="text-gradient-brand">operaciones imparables</span>.
+          Hemos colaborado con <span className="text-gradient-brand">marcas que exigen excelencia</span>.
         </h2>
+        <p className="text-lg text-muted-foreground mt-4">
+          Desde corporativos hasta negocios locales, llevamos cada proyecto con el mismo estándar.
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto mb-20">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-8">
+          He trabajado para
+        </p>
+        <div className="grid grid-cols-3 gap-6 md:gap-12 items-center">
+          {partners.map((p) => (
+            <div
+              key={p.name}
+              className="flex items-center justify-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant transition-all"
+            >
+              <img
+                src={p.logo}
+                alt={`Logo ${p.name}`}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
