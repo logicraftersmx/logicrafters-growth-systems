@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { AuthProvider } from "./admin/auth/AuthProvider";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import { ProtectedRoute } from "./admin/auth/ProtectedRoute";
 import AdminLayout from "./admin/layout/AdminLayout";
 import AdminAuth from "./admin/pages/AdminAuth";
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <LanguageProvider>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -52,6 +54,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
