@@ -1,23 +1,23 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Compass } from "lucide-react";
+import { ErrorScreen } from "@/components/ErrorScreen";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error("404: ruta inexistente:", location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
-    </div>
+    <ErrorScreen
+      code="404"
+      title="Página no encontrada"
+      description="La dirección que buscas no existe o fue movida. Verifica el enlace o vuelve al inicio."
+      Icon={Compass}
+      detail={location.pathname}
+    />
   );
 };
 
