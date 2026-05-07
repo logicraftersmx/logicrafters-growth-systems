@@ -3,8 +3,11 @@ import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import dashboard from "@/assets/dashboard-mockup.png";
+import { useLang } from "@/i18n/LanguageContext";
 
-export const Hero = () => (
+export const Hero = () => {
+  const { t } = useLang();
+  return (
   <section id="top" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-hero">
     <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen" width={1920} height={1280} />
     <div className="absolute inset-0 grid-pattern opacity-60" />
@@ -14,28 +17,28 @@ export const Hero = () => (
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
           <Sparkles className="w-4 h-4 text-secondary" />
-          Soluciones digitales a la medida — no plantillas
+          {t("hero.badge")}
         </div>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6">
-          Convierte tu negocio en una <span className="text-gradient-orange">máquina de ventas</span> automatizada.
+          {t("hero.title1")} <span className="text-gradient-orange">{t("hero.title2")}</span>{t("hero.title3")}
         </h1>
         <p className="text-lg md:text-xl text-white/75 mb-10 max-w-xl leading-relaxed">
-          Diseñamos y desarrollamos sistemas digitales que organizan tu operación, atraen más clientes y multiplican tus ingresos. Sin plantillas. Sin improvisaciones.
+          {t("hero.desc")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Button variant="hero" size="xl" asChild>
-            <a href="#contacto">Agendar diagnóstico gratis <ArrowRight className="w-5 h-5" /></a>
+            <a href="#contacto">{t("hero.ctaPrimary")} <ArrowRight className="w-5 h-5" /></a>
           </Button>
           <Button variant="outlineLight" size="xl" asChild>
             <a href="https://w.app/l6zsyx" target="_blank" rel="noopener">
-              <MessageCircle className="w-5 h-5" /> Hablar por WhatsApp
+              <MessageCircle className="w-5 h-5" /> {t("hero.ctaWhatsapp")}
             </a>
           </Button>
         </div>
         <div className="flex flex-wrap gap-6 mt-10 text-white/60 text-sm">
-          <div>✓ Diagnóstico sin costo</div>
-          <div>✓ Respuesta en 24 hrs</div>
-          <div>✓ Soluciones escalables</div>
+          <div>{t("hero.bullet1")}</div>
+          <div>{t("hero.bullet2")}</div>
+          <div>{t("hero.bullet3")}</div>
         </div>
       </motion.div>
 
@@ -57,3 +60,4 @@ export const Hero = () => (
     </div>
   </section>
 );
+};

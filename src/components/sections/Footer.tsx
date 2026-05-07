@@ -1,14 +1,17 @@
 import { Logo } from "../Logo";
 import { Instagram, Facebook, Linkedin, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLang } from "@/i18n/LanguageContext";
 
-export const Footer = () => (
+export const Footer = () => {
+  const { t } = useLang();
+  return (
   <footer className="bg-[hsl(var(--navy))] text-white/70 py-12 border-t border-white/10">
     <div className="container">
       <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
         <div>
           <div className="bg-white rounded-lg p-2 inline-block mb-3"><Logo className="h-8" /></div>
-          <p className="text-sm max-w-sm">Construimos sistemas digitales que hacen crecer negocios reales en México.</p>
+          <p className="text-sm max-w-sm">{t("footer.tagline")}</p>
         </div>
         <div className="flex gap-4">
           <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><Instagram className="w-4 h-4" /></a>
@@ -17,17 +20,18 @@ export const Footer = () => (
         </div>
       </div>
       <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between text-xs text-white/50 gap-2">
-        <p>© {new Date().getFullYear()} Logicrafters MX. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Logicrafters MX. {t("footer.rights")}</p>
         <div className="flex items-center gap-4">
-          <p>Hecho con obsesión por los detalles 🇲🇽</p>
+          <p>{t("footer.made")}</p>
           <Link
             to="/admin"
             className="inline-flex items-center gap-1 hover:text-white/80 transition-colors"
           >
-            <Lock className="w-3 h-3" /> Acceso interno
+            <Lock className="w-3 h-3" /> {t("footer.access")}
           </Link>
         </div>
       </div>
     </div>
   </footer>
 );
+};
