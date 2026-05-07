@@ -3,6 +3,7 @@ import { Menu, X, Languages } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
 import { useLang } from "@/i18n/LanguageContext";
+import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
@@ -36,8 +37,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-20">
-        <a href="#top" className={cn("flex items-center transition-all", !scrolled && "bg-white/95 rounded-lg px-2 py-1")}>
-          <Logo className="h-9 md:h-10" />
+        <a href="#top" className="flex items-center transition-all">
+          <Logo className="h-10 md:h-12" variant={scrolled ? "auto" : "light"} />
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
@@ -47,6 +48,7 @@ export const Navbar = () => {
           ))}
         </nav>
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle onDark={!scrolled} />
           <button
             onClick={() => setLang(lang === "es" ? "en" : "es")}
             className={cn(
