@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ServerError from "./pages/ServerError.tsx";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { AuthProvider } from "./admin/auth/AuthProvider";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { ThemeProvider } from "./theme/ThemeContext";
@@ -29,6 +31,7 @@ const App = () => (
         <ThemeProvider>
         <LanguageProvider>
         <AuthProvider>
+          <ErrorBoundary>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/admin/auth" element={<AdminAuth />} />
@@ -54,9 +57,11 @@ const App = () => (
                 }
               />
             </Route>
+            <Route path="/500" element={<ServerError />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </ErrorBoundary>
         </AuthProvider>
         </LanguageProvider>
         </ThemeProvider>
