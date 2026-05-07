@@ -1,35 +1,9 @@
 import { motion } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
+import { useLang } from "@/i18n/LanguageContext";
 import logoInbursa from "@/assets/logo-inbursa.svg";
 import logoTagPase from "@/assets/logo-tagpase.jpg";
 import logoMidori from "@/assets/logo-midori.webp";
-
-const cases = [
-  {
-    industry: "Bienes raíces",
-    before: "Propiedades en hojas de cálculo, leads dispersos en WhatsApp y sin presencia digital seria.",
-    after: "Sitio editorial premium, buscador avanzado y portal de agentes — leads centralizados.",
-    quote: "Logicrafters entendió el lenguaje del lujo. El sitio nos posicionó como referente y los clientes llegan listos para cerrar.",
-    author: "Equipo Almena",
-    role: "Almena Inmobiliaria",
-  },
-  {
-    industry: "Abarrotes / Retail",
-    before: "Ventas solo de mostrador, sin catálogo digital ni forma de recibir pedidos a distancia.",
-    after: "Tienda en línea con catálogo, carrito y entrega local — pedidos 24/7.",
-    quote: "Pasamos de vender solo en el local a recibir pedidos por internet todos los días. La inversión se pagó en semanas.",
-    author: "Familia Chalía",
-    role: "Abarrotes Chalía, Rayón S.L.P.",
-  },
-  {
-    industry: "Industria automotriz",
-    before: "Procesos internos manuales, reportes en Excel y comunicación dispersa entre áreas.",
-    after: "Tableros y automatizaciones a medida que aceleran la operación diaria.",
-    quote: "Gente con criterio técnico y de negocio. Entregaron exactamente lo que necesitábamos, en tiempo y forma.",
-    author: "Área de Sistemas",
-    role: "Proyecto para Midori Auto Leather",
-  },
-];
 
 const partners = [
   { name: "Inbursa", logo: logoInbursa },
@@ -37,28 +11,33 @@ const partners = [
   { name: "Midori Auto Leather", logo: logoMidori },
 ];
 
-export const SocialProof = () => (
+export const SocialProof = () => {
+  const { t } = useLang();
+  const cases = [
+    { industry: t("sp.c1.industry"), before: t("sp.c1.before"), after: t("sp.c1.after"), quote: t("sp.c1.quote"), author: "Equipo Almena", role: "Almena Inmobiliaria" },
+    { industry: t("sp.c2.industry"), before: t("sp.c2.before"), after: t("sp.c2.after"), quote: t("sp.c2.quote"), author: "Familia Chalía", role: "Abarrotes Chalía, Rayón S.L.P." },
+    { industry: t("sp.c3.industry"), before: t("sp.c3.before"), after: t("sp.c3.after"), quote: t("sp.c3.quote"), author: "Área de Sistemas", role: "Proyecto para Midori Auto Leather" },
+  ];
+  return (
   <section className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">Experiencia y resultados reales</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">{t("sp.tag")}</span>
         <h2 className="text-4xl md:text-5xl font-bold">
-          Hemos colaborado con <span className="text-gradient-brand">marcas que exigen excelencia</span>.
+          {t("sp.title1")} <span className="text-gradient-brand">{t("sp.title2")}</span>.
         </h2>
-        <p className="text-lg text-muted-foreground mt-4">
-          Desde corporativos hasta negocios locales, llevamos cada proyecto con el mismo estándar.
-        </p>
+        <p className="text-lg text-muted-foreground mt-4">{t("sp.desc")}</p>
       </div>
 
       <div className="max-w-5xl mx-auto mb-20">
         <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-8">
-          He trabajado para
+          {t("sp.workedFor")}
         </p>
         <div className="grid grid-cols-3 gap-6 md:gap-12 items-center">
           {partners.map((p) => (
             <div
               key={p.name}
-              className="flex items-center justify-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant transition-all"
+              className="flex items-center justify-center p-6 rounded-2xl bg-card border border-border hover:shadow-elegant transition-all dark:bg-white/95"
             >
               <img
                 src={p.logo}
@@ -86,12 +65,12 @@ export const SocialProof = () => (
             <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-5">{c.industry}</div>
             <div className="space-y-3 mb-6">
               <div className="p-3 rounded-lg bg-destructive/5 border-l-2 border-destructive/40">
-                <div className="text-xs font-bold text-destructive uppercase tracking-wider mb-1">Antes</div>
+                <div className="text-xs font-bold text-destructive uppercase tracking-wider mb-1">{t("sp.before")}</div>
                 <p className="text-sm text-foreground/80">{c.before}</p>
               </div>
               <div className="flex justify-center text-muted-foreground"><ArrowRight className="w-4 h-4" /></div>
               <div className="p-3 rounded-lg bg-accent/10 border-l-2 border-accent">
-                <div className="text-xs font-bold text-accent-foreground uppercase tracking-wider mb-1">Después</div>
+                <div className="text-xs font-bold text-accent-foreground uppercase tracking-wider mb-1">{t("sp.after")}</div>
                 <p className="text-sm text-foreground/80">{c.after}</p>
               </div>
             </div>
@@ -107,10 +86,10 @@ export const SocialProof = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-20 pt-12 border-t border-border">
         {[
-          { n: "50+", l: "Negocios transformados" },
-          { n: "+65%", l: "Ventas en promedio" },
-          { n: "15h", l: "Recuperadas por semana" },
-          { n: "98%", l: "Clientes satisfechos" },
+          { n: "50+", l: t("sp.s1") },
+          { n: "+65%", l: t("sp.s2") },
+          { n: "15h", l: t("sp.s3") },
+          { n: "98%", l: t("sp.s4") },
         ].map((s) => (
           <div key={s.l} className="text-center">
             <div className="text-3xl md:text-4xl font-extrabold text-gradient-brand">{s.n}</div>
@@ -120,4 +99,5 @@ export const SocialProof = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
