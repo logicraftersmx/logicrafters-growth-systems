@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
 import { Code2, Smartphone, Database, Zap } from "lucide-react";
-import { useLang } from "@/i18n/LanguageContext";
 
-export const Solution = () => {
-  const { t } = useLang();
-  const pillars = [
-    { icon: Code2, title: t("sol.p1.title"), desc: t("sol.p1.desc") },
-    { icon: Smartphone, title: t("sol.p2.title"), desc: t("sol.p2.desc") },
-    { icon: Database, title: t("sol.p3.title"), desc: t("sol.p3.desc") },
-    { icon: Zap, title: t("sol.p4.title"), desc: t("sol.p4.desc") },
-  ];
-  return (
+const pillars = [
+  { icon: Code2, title: "Sitio web que vende", desc: "No un folleto digital. Un sitio diseñado para captar leads y convertirlos en clientes 24/7." },
+  { icon: Smartphone, title: "App móvil a tu medida", desc: "Para tus clientes, tu equipo o tu operación. Pensada para tu modelo de negocio, no genérica." },
+  { icon: Database, title: "Sistema de gestión", desc: "Agenda, inventario, cobros, clientes, reportes. Todo en un solo lugar, accesible desde cualquier dispositivo." },
+  { icon: Zap, title: "Automatizaciones", desc: "Recordatorios, confirmaciones, facturación, marketing. Que el sistema haga lo aburrido por ti." },
+];
+
+export const Solution = () => (
   <section id="solucion" className="py-24 md:py-32 bg-muted/40 relative overflow-hidden">
     <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
     <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
     <div className="container relative">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">{t("sol.tag")}</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">La solución</span>
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          {t("sol.title1")}<br /> {t("sol.title2")} <span className="text-gradient-brand">{t("sol.title3")}</span>.
+          No vendemos páginas web.<br /> Construimos <span className="text-gradient-brand">sistemas que hacen crecer tu negocio</span>.
         </h2>
-        <p className="text-lg text-muted-foreground">{t("sol.desc")}</p>
+        <p className="text-lg text-muted-foreground">
+          Analizamos tu operación y diseñamos una solución integral: web + app + sistema interno + automatización. Todo conectado, todo a tu medida.
+        </p>
       </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -43,5 +43,4 @@ export const Solution = () => {
       </div>
     </div>
   </section>
-  );
-};
+);

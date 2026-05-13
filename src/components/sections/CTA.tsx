@@ -5,38 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { useLang } from "@/i18n/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
 
 export const CTA = () => {
   const [loading, setLoading] = useState(false);
-  const { t } = useLang();
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const data = new FormData(e.currentTarget);
-    const form = e.currentTarget;
-    const name = String(data.get("name") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
-    const business = String(data.get("business") || "").trim();
-    const message = String(data.get("message") || "").trim() || null;
-
-    const { error } = await supabase.from("leads").insert({
-      name, phone, business, message, source: "website-form",
-    });
-
-    if (error) {
-      setLoading(false);
-      toast.error("No se pudo enviar. Intenta de nuevo.");
-      return;
-    }
-
+    const name = data.get("name");
+    const phone = data.get("phone");
+    const business = data.get("business");
     const msg = `Hola Logicrafters, soy ${name} (${phone}). Tengo un negocio de ${business} y quiero un diagnóstico.`;
-    window.open(`https://wa.link/t4smw8?text=${encodeURIComponent(msg)}`, "_blank");
-    toast.success(t("cta.toast"));
-    setLoading(false);
-    form.reset();
+    setTimeout(() => {
+      window.open(`https://w.app/l6zsyx?text=${encodeURIComponent(msg)}`, "_blank");
+      toast.success("¡Listo! Te contactamos en menos de 24 horas.");
+      setLoading(false);
+      (e.target as HTMLFormElement).reset();
+    }, 600);
   };
 
   return (
@@ -46,19 +32,21 @@ export const CTA = () => {
 
       <div className="container relative grid lg:grid-cols-2 gap-12 items-center max-w-6xl">
         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold mb-5">{t("cta.tag")}</span>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold mb-5">Tu próximo paso</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            {t("cta.title1")} <span className="text-gradient-orange">{t("cta.title2")}</span>.
+            Deja de perder dinero. <span className="text-gradient-orange">Empieza hoy</span>.
           </h2>
-          <p className="text-lg text-white/75 mb-8">{t("cta.desc")}</p>
+          <p className="text-lg text-white/75 mb-8">
+            Agenda un diagnóstico gratuito de 30 minutos. Te decimos exactamente qué te está frenando y cómo solucionarlo. Sin compromiso.
+          </p>
           <div className="space-y-4">
-            <a href="https://wa.link/t4smw8" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://w.app/l6zsyx" target="_blank" rel="noopener" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center"><MessageCircle className="w-5 h-5 text-white" /></div>
-              <div><div className="text-sm text-white/60">{t("cta.wa")}</div><div className="font-semibold">+52 487 195 5616</div></div>
+              <div><div className="text-sm text-white/60">WhatsApp directo</div><div className="font-semibold">+52 771 114 8693</div></div>
             </a>
             <a href="mailto:logicraftersmx@gmail.com" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center"><Mail className="w-5 h-5 text-white" /></div>
-              <div><div className="text-sm text-white/60">{t("cta.email")}</div><div className="font-semibold">logicraftersmx@gmail.com</div></div>
+              <div><div className="text-sm text-white/60">Correo</div><div className="font-semibold">logicraftersmx@gmail.com</div></div>
             </a>
           </div>
         </motion.div>
@@ -70,29 +58,29 @@ export const CTA = () => {
           onSubmit={onSubmit}
           className="p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-xl shadow-elegant"
         >
-          <h3 className="text-2xl font-bold mb-1">{t("cta.formTitle")}</h3>
-          <p className="text-sm text-white/60 mb-6">{t("cta.formSub")}</p>
+          <h3 className="text-2xl font-bold mb-1">Diagnóstico gratis</h3>
+          <p className="text-sm text-white/60 mb-6">Te respondemos en menos de 24 horas.</p>
           <div className="space-y-4">
             <div>
-              <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fName")}</label>
-              <Input name="name" required placeholder={t("cta.fNamePh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
+              <label className="text-sm text-white/80 mb-1.5 block">Nombre</label>
+              <Input name="name" required placeholder="Tu nombre" className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
             </div>
             <div>
-              <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fWa")}</label>
-              <Input name="phone" required type="tel" placeholder="55 1234 5678" className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
+              <label className="text-sm text-white/80 mb-1.5 block">WhatsApp</label>
+              <Input name="phone" required type="tel" placeholder="55 1234 5678" className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
             </div>
             <div>
-              <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fBiz")}</label>
-              <Input name="business" required placeholder={t("cta.fBizPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
+              <label className="text-sm text-white/80 mb-1.5 block">¿De qué es tu negocio?</label>
+              <Input name="business" required placeholder="Barbería, estética, tienda…" className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
             </div>
             <div>
-              <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fMsg")}</label>
-              <Textarea name="message" placeholder={t("cta.fMsgPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 min-h-[90px]" />
+              <label className="text-sm text-white/80 mb-1.5 block">Cuéntanos brevemente (opcional)</label>
+              <Textarea name="message" placeholder="¿Qué problema quieres resolver?" className="bg-white/5 border-white/15 text-white placeholder:text-white/40 min-h-[90px]" />
             </div>
             <Button type="submit" variant="hero" size="xl" className="w-full" disabled={loading}>
-              {loading ? t("cta.sending") : <>{t("cta.submit")} <ArrowRight className="w-5 h-5" /></>}
+              {loading ? "Enviando..." : <>Quiero mi diagnóstico <ArrowRight className="w-5 h-5" /></>}
             </Button>
-            <p className="text-xs text-white/75 text-center">{t("cta.privacy")}</p>
+            <p className="text-xs text-white/50 text-center">🔒 Tu información es 100% confidencial</p>
           </div>
         </motion.form>
       </div>

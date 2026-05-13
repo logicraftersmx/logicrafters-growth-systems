@@ -19,7 +19,7 @@ export const Footer = () => {
           <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><Linkedin className="w-4 h-4" /></a>
         </div>
       </div>
-      <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between text-xs text-white/75 gap-2">
+      <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between text-xs text-white/50 gap-2">
         <p>© {new Date().getFullYear()} Logicrafters MX. {t("footer.rights")}</p>
         <div className="flex items-center gap-4">
           <p>{t("footer.made")}</p>

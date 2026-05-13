@@ -30,7 +30,7 @@ export const Hero = () => {
             <a href="#contacto">{t("hero.ctaPrimary")} <ArrowRight className="w-5 h-5" /></a>
           </Button>
           <Button variant="outlineLight" size="xl" asChild>
-            <a href="https://wa.link/t4smw8" target="_blank" rel="noopener">
+            <a href="https://w.app/l6zsyx" target="_blank" rel="noopener">
               <MessageCircle className="w-5 h-5" /> {t("hero.ctaWhatsapp")}
             </a>
           </Button>

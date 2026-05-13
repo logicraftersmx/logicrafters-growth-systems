@@ -97,8 +97,6 @@
     --border: 215 40% 20%;
     --input: 215 40% 20%;
     --ring: 200 80% 55%;
-    --gradient-card: linear-gradient(180deg, hsl(215 50% 14%) 0%, hsl(215 55% 10%) 100%);
-    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(22 90% 55% / 0.18), transparent 70%);
   }
 }
 

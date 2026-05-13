@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, Clock, TrendingDown, Users } from "lucide-react";
-import { useLang } from "@/i18n/LanguageContext";
 
-export const Problem = () => {
-  const { t } = useLang();
-  const pains = [
-    { icon: TrendingDown, title: t("prob.p1.title"), desc: t("prob.p1.desc") },
-    { icon: Clock, title: t("prob.p2.title"), desc: t("prob.p2.desc") },
-    { icon: Users, title: t("prob.p3.title"), desc: t("prob.p3.desc") },
-    { icon: AlertTriangle, title: t("prob.p4.title"), desc: t("prob.p4.desc") },
-  ];
-  return (
+const pains = [
+  { icon: TrendingDown, title: "Pierdes ventas todos los días", desc: "Clientes que te buscan en Google, Instagram o WhatsApp y nunca terminan de comprar porque no tienes un proceso claro." },
+  { icon: Clock, title: "Vives apagando incendios", desc: "Agendas en cuadernos, cobros en notas del celular, inventario en la cabeza. Tu negocio depende 100% de ti." },
+  { icon: Users, title: "No sabes quiénes son tus clientes", desc: "No tienes datos. No sabes qué se vende, quién regresa, ni cuánto realmente ganas al mes." },
+  { icon: AlertTriangle, title: "Quieres crecer pero no escalas", desc: "Cada nueva sucursal o producto es un caos. Sin sistema, crecer significa más estrés, no más dinero." },
+];
+
+export const Problem = () => (
   <section id="problema" className="py-24 md:py-32 bg-background">
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-destructive/10 text-destructive text-sm font-semibold mb-4">{t("prob.tag")}</span>
+        <span className="inline-block px-4 py-1.5 rounded-full bg-destructive/10 text-destructive text-sm font-semibold mb-4">El problema real</span>
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          {t("prob.title1")}<br /> {t("prob.title2")} <span className="text-destructive">{t("prob.title3")}</span>.
+          Si tu negocio funciona "a la antigua",<br /> está perdiendo dinero <span className="text-destructive">cada mes</span>.
         </h2>
-        <p className="text-lg text-muted-foreground">{t("prob.desc")}</p>
+        <p className="text-lg text-muted-foreground">
+          La mayoría de negocios no fracasan por falta de clientes. Fracasan por falta de organización, datos y sistemas que les permitan escalar.
+        </p>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -41,5 +41,4 @@ export const Problem = () => {
       </div>
     </div>
   </section>
-  );
-};
+);
