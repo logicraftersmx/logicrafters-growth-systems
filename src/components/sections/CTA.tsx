@@ -75,24 +75,24 @@ export const CTA = () => {
           <div className="space-y-4">
             <div>
               <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fName")}</label>
-              <Input name="name" required placeholder={t("cta.fNamePh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
+              <Input name="name" required placeholder={t("cta.fNamePh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
             </div>
             <div>
               <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fWa")}</label>
-              <Input name="phone" required type="tel" placeholder="55 1234 5678" className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
+              <Input name="phone" required type="tel" placeholder="55 1234 5678" className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
             </div>
             <div>
               <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fBiz")}</label>
-              <Input name="business" required placeholder={t("cta.fBizPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/40 h-12" />
+              <Input name="business" required placeholder={t("cta.fBizPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 h-12" />
             </div>
             <div>
               <label className="text-sm text-white/80 mb-1.5 block">{t("cta.fMsg")}</label>
-              <Textarea name="message" placeholder={t("cta.fMsgPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/40 min-h-[90px]" />
+              <Textarea name="message" placeholder={t("cta.fMsgPh")} className="bg-white/5 border-white/15 text-white placeholder:text-white/70 min-h-[90px]" />
             </div>
             <Button type="submit" variant="hero" size="xl" className="w-full" disabled={loading}>
               {loading ? t("cta.sending") : <>{t("cta.submit")} <ArrowRight className="w-5 h-5" /></>}
             </Button>
-            <p className="text-xs text-white/50 text-center">{t("cta.privacy")}</p>
+            <p className="text-xs text-white/75 text-center">{t("cta.privacy")}</p>
           </div>
         </motion.form>
       </div>
