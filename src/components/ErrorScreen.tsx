@@ -39,10 +39,10 @@ export const ErrorScreen = ({
         {code}
       </p>
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">{title}</h1>
-      <p className="text-base md:text-lg text-white/70 mb-8">{description}</p>
+      <p className="text-base md:text-lg text-white/85 mb-8">{description}</p>
 
       {detail && (
-        <p className="text-xs text-white/40 mb-6 font-mono break-all">{detail}</p>
+        <p className="text-xs text-white/70 mb-6 font-mono break-all">{detail}</p>
       )}
 
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
