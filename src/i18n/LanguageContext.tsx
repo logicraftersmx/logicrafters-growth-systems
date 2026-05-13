@@ -94,10 +94,10 @@ export const dict: Dict = {
   "sp.c3.before": { es: "Procesos internos manuales, reportes en Excel y comunicación dispersa entre áreas.", en: "Manual internal processes, Excel reports and scattered communication across teams." },
   "sp.c3.after": { es: "Dashboards a medida, integraciones internas y automatizaciones que aceleran la operación diaria.", en: "Custom dashboards, internal integrations and automations that speed up daily operations." },
   "sp.c3.quote": { es: "Criterio técnico y de negocio. Entregaron exactamente lo que necesitábamos, con código mantenible y arquitectura escalable.", en: "Technical and business judgment. They delivered exactly what we needed, with maintainable code and scalable architecture." },
-  "sp.s1": { es: "Negocios transformados", en: "Businesses transformed" },
-  "sp.s2": { es: "Ventas en promedio", en: "Average sales lift" },
-  "sp.s3": { es: "Recuperadas por semana", en: "Recovered per week" },
-  "sp.s4": { es: "Clientes satisfechos", en: "Happy clients" },
+  "sp.s1": { es: "Proyectos desde 2021", en: "Projects since 2021" },
+  "sp.s2": { es: "Aumento de conversión promedio", en: "Average conversion lift" },
+  "sp.s3": { es: "Horas/semana recuperadas", en: "Hours/week recovered" },
+  "sp.s4": { es: "Clientes que renovarían", en: "Clients who would renew" },
 
   // Problem
   "prob.tag": { es: "El problema real", en: "The real problem" },
